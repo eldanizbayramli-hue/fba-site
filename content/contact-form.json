@@ -1,0 +1,14 @@
+{
+  "title": "Pulsuz konsultasiya alın",
+  "subtitle": "İlk görüş tamamilə pulsuzdur. Biznesinizi analiz edib sizin üçün ən uyğun həlli birlikdə müəyyən edirik.",
+  "button": "Müraciət Göndər →",
+  "success": "Müraciətiniz göndərildi! 24 saat ərzində cavab veririk.",
+  "services": [
+    "Maliyyə Konsaltinqi",
+    "Audit",
+    "Mühasibatlıq & Vergi",
+    "Biznes & Data Analitika",
+    "Digital Transformasiya",
+    "Hamısı / Bilmirəm"
+  ]
+}

@@ -1,0 +1,134 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "images"
+public_folder: "/images"
+
+locale: "az"
+
+collections:
+  # ── ŞİRKƏT MƏLUMATLARI ──
+  - name: "settings"
+    label: "⚙️ Şirkət Məlumatları"
+    files:
+      - name: "company"
+        label: "Əsas Məlumatlar"
+        file: "content/company.json"
+        fields:
+          - { label: "Şirkət Adı", name: "name", widget: "string", default: "FB&A Advisory" }
+          - { label: "Slogan", name: "slogan", widget: "string", default: "Məlumatları Qərara, Qərarları Nəticəyə" }
+          - { label: "Alt Slogan", name: "subslogan", widget: "string", default: "Məlumatdan Dəyər Yaradırıq" }
+          - { label: "Telefon", name: "phone", widget: "string", default: "+994 XX XXX XX XX" }
+          - { label: "Email", name: "email", widget: "string", default: "info@fba-advisory.az" }
+          - { label: "Website", name: "website", widget: "string", default: "www.fba-advisory.az" }
+          - { label: "Ünvan", name: "address", widget: "string", default: "Bakı, Azərbaycan" }
+          - { label: "LinkedIn URL", name: "linkedin", widget: "string", required: false }
+          - { label: "WhatsApp Nömrəsi", name: "whatsapp", widget: "string", required: false, hint: "Nümunə: 994501234567" }
+
+  # ── HERO BÖLMƏSİ ──
+      - name: "hero"
+        label: "🏠 Ana Səhifə (Hero)"
+        file: "content/hero.json"
+        fields:
+          - { label: "Başlıq Xətti 1", name: "title1", widget: "string", default: "Məlumatları" }
+          - { label: "Başlıq Vurğu (sarı)", name: "title2", widget: "string", default: "Qərara," }
+          - { label: "Başlıq Xətti 3", name: "title3", widget: "string", default: "Qərarları Nəticəyə" }
+          - { label: "Alt mətn", name: "subtitle", widget: "text", default: "Şirkətiniz üçün Power BI dashboardlar, maliyyə konsaltinqi, planlama sistemləri və tam biznes analitika həlləri." }
+          - { label: "Düymə 1 mətni", name: "btn1", widget: "string", default: "Pulsuz Konsultasiya →" }
+          - { label: "Düymə 2 mətni", name: "btn2", widget: "string", default: "Xidmətlərə Bax" }
+          - label: "Statistikalar"
+            name: "stats"
+            widget: "list"
+            fields:
+              - { label: "Rəqəm", name: "value", widget: "string" }
+              - { label: "Açıqlama", name: "label", widget: "string" }
+
+  # ── XİDMƏTLƏR ──
+  - name: "services"
+    label: "🛠️ Xidmətlər"
+    folder: "content/services"
+    create: true
+    slug: "{{slug}}"
+    identifier_field: "title"
+    fields:
+      - { label: "Nömrə", name: "order", widget: "number", default: 1 }
+      - { label: "Xidmət Adı", name: "title", widget: "string" }
+      - { label: "Emoji / İkon", name: "icon", widget: "string", default: "📊", hint: "Emoji yazın: 📊 🎯 ⚡ 📦 🏗️ 🚀" }
+      - { label: "Açıqlama", name: "description", widget: "text" }
+      - label: "Taqlar"
+        name: "tags"
+        widget: "list"
+        field: { label: "Taq", name: "tag", widget: "string" }
+      - label: "Alt xidmətlər (isteğe bağlı)"
+        name: "items"
+        widget: "list"
+        required: false
+        field: { label: "Maddə", name: "item", widget: "string" }
+
+  # ── PAKETLƏR ──
+  - name: "packages"
+    label: "📦 Paketlər"
+    folder: "content/packages"
+    create: true
+    slug: "{{slug}}"
+    identifier_field: "name"
+    fields:
+      - { label: "Nömrə", name: "order", widget: "number" }
+      - { label: "Paket adı (BASIC / PROFESSIONAL / EXECUTIVE)", name: "name", widget: "string" }
+      - { label: "Başlıq", name: "title", widget: "string" }
+      - { label: "Açıqlama", name: "description", widget: "text" }
+      - { label: "Badge mətni", name: "badge", widget: "string", default: "Başlanğıc" }
+      - { label: "Tövsiyə edilən paket?", name: "featured", widget: "boolean", default: false }
+      - label: "Xidmətlər siyahısı"
+        name: "features"
+        widget: "list"
+        fields:
+          - { label: "Xidmət", name: "text", widget: "string" }
+          - { label: "Aktiv (✓)?", name: "active", widget: "boolean", default: true }
+
+  # ── MÜŞTƏRİ RƏYLƏRİ ──
+  - name: "testimonials"
+    label: "💬 Müştəri Rəyləri"
+    folder: "content/testimonials"
+    create: true
+    slug: "{{slug}}"
+    identifier_field: "name"
+    fields:
+      - { label: "Ad Soyad", name: "name", widget: "string" }
+      - { label: "Vəzifə", name: "position", widget: "string" }
+      - { label: "Şirkət", name: "company", widget: "string" }
+      - { label: "Rəy", name: "quote", widget: "text" }
+      - { label: "Foto", name: "photo", widget: "image", required: false }
+
+  # ── BLOG / MƏQALƏLƏR ──
+  - name: "blog"
+    label: "📝 Blog / Məqalələr"
+    folder: "content/blog"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - { label: "Başlıq", name: "title", widget: "string" }
+      - { label: "Tarix", name: "date", widget: "datetime" }
+      - { label: "Kateqoriya", name: "category", widget: "select", options: ["Maliyyə", "Analitika", "Audit", "Power BI", "Mühasibatlıq", "Xəbər"] }
+      - { label: "Qısa xülasə", name: "summary", widget: "text" }
+      - { label: "Şəkil", name: "image", widget: "image", required: false }
+      - { label: "Məzmun", name: "body", widget: "markdown" }
+      - { label: "Yayımla?", name: "published", widget: "boolean", default: true }
+
+  # ── MÜRAJİƏTLƏR ──
+  - name: "settings_forms"
+    label: "📬 Forma Parametrləri"
+    files:
+      - name: "contact_form"
+        label: "Əlaqə Forması"
+        file: "content/contact-form.json"
+        fields:
+          - { label: "Forma başlığı", name: "title", widget: "string", default: "Pulsuz konsultasiya alın" }
+          - { label: "Forma alt mətni", name: "subtitle", widget: "text" }
+          - { label: "Düymə mətni", name: "button", widget: "string", default: "Müraciət Göndər →" }
+          - { label: "Uğur mesajı", name: "success", widget: "string", default: "Müraciətiniz göndərildi! 24 saat ərzində cavab veririk." }
+          - label: "Xidmət seçimləri"
+            name: "services"
+            widget: "list"
+            field: { label: "Xidmət", name: "service", widget: "string" }

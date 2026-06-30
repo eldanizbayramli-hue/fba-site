@@ -1,0 +1,14 @@
+{
+  "title1": "Məlumatları",
+  "title2": "Qərara,",
+  "title3": "Qərarları Nəticəyə",
+  "subtitle": "Şirkətiniz üçün Power BI dashboardlar, maliyyə konsaltinqi, planlama sistemləri və tam biznes analitika həlləri.",
+  "btn1": "Pulsuz Konsultasiya →",
+  "btn2": "Xidmətlərə Bax",
+  "stats": [
+    { "value": "50+", "label": "Tamamlanmış Layihə" },
+    { "value": "30+", "label": "Müştəri Şirkət" },
+    { "value": "8+", "label": "İl Təcrübə" },
+    { "value": "40%", "label": "Ortalama Xərc Azalması" }
+  ]
+}
